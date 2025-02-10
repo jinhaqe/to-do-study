@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.body_box {
+  width: 500px;
+  border: solid 1px black;
+  min-height: 400px; /* 최소 높이는 두고 */
+  margin: 0 auto;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* 세로로 쌓이도록 설정 */
+}
+
+h1 {
+  margin: 20px;
+  text-align: center;
+  margin-left: -10px;
+}
+
+.content {
+  background-color: #ffffff;
+  width: 500px;
+  text-align: center;
+  line-height: 50px;
+}
+
+input {
+  width: 350px;
+  height: 30px;
+  padding: 5px;
+  padding-left: 20px;
+  border-radius: 50px;
+  border: 0;
+  font-size: 16px;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(202, 128, 177, 0.8);
+}
+
+input:focus {
+  border-color: #2c97bb;
+  background-color: white;
+  border: 0px;
+}
+
+ul {
+  margin: 10px;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  text-align: left;
+  width: 360px;
+  margin: 0;
+  margin-left: 20px;
+  border-radius: 50px;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+li:nth-child(odd) {
+  background-color: rgb(255, 243, 251);
+}
+
+li:nth-child(even) {
+  background-color: rgb(255, 234, 249);
+}
+
+#add {
+  border-radius: 10px;
+  width: 50px;
+  height: 40px;
+  border: 0;
+  background-color: rgb(233, 174, 213);
+  color: white;
+  margin-left: 10px;
+}
