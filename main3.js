@@ -1,4 +1,5 @@
 let todos = [];
+let i = 1;
 
 document.addEventListener("DOMContentLoaded", () => {
   loadTodos();
@@ -24,6 +25,8 @@ function button_event() {
   console.log(todos);
 
   input.value = "";
+
+  i++;
 }
 
 function createList(value) {
@@ -34,6 +37,7 @@ function createList(value) {
   let check = document.createElement("input");
   check.type = "checkbox";
   check.setAttribute("class", "check");
+  newLi.setAttribute("id", i);
 
   newLi.appendChild(check);
   newLi.appendChild(text);
@@ -51,7 +55,7 @@ function createList(value) {
 
   deletebtn.addEventListener("click", () => {
     ul.removeChild(newLi);
-    removeObj(value);
+    removeObj(parseInt(newLi.id)); // id 전달
     saveTodos();
   });
 
@@ -60,6 +64,7 @@ function createList(value) {
 
     if (isEditing) {
       const newInput = newLi.querySelector(".newinput");
+      titleStatus(parseInt(newLi.id), newInput.value); // id와 새로운 title 전달
       text.textContent = newInput.value;
     }
 
@@ -96,7 +101,7 @@ function createList(value) {
       newLi.classList.remove("completed");
     }
 
-    CheckedStatus(value, check.checked);
+    CheckedStatus(parseInt(newLi.id), check.checked); // id 전달
     saveTodos();
   });
 
@@ -116,15 +121,23 @@ function addObj(title, checked) {
   saveTodos();
 }
 
-function removeObj(title) {
-  todos = todos.filter((todo) => todo.title !== title);
+function removeObj(id) {
+  // id로 항목 삭제
+  todos = todos.filter((todo) => todo.id !== id);
   saveTodos();
 }
 
-function CheckedStatus(title, checked) {
-  const todo = todos.find((todo) => todo.title === title);
+function CheckedStatus(id, checked) {
+  const todo = todos.find((todo) => todo.id === id); // id로 비교
   if (todo) {
     todo.checked = checked;
+  }
+}
+
+function titleStatus(id, newTitle) {
+  const todo = todos.find((todo) => todo.id === id); // id로 비교
+  if (todo) {
+    todo.title = newTitle;
   }
 }
 
