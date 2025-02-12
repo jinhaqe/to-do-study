@@ -1,7 +1,3 @@
-// 1. 투두리스트 디자인 만들기
-// 2. Todo 객체 생성
-// 3. 내용, 체크 여부, id
-
 function button_event() {
   let input = document.getElementById("todo");
   let ul = document.querySelector("ul");
@@ -37,41 +33,45 @@ function button_event() {
   newLi.appendChild(deletebtn);
   newLi.appendChild(insert_btn);
 
-  let Editing = false;
-
-  insert_btn.addEventListener("click", function () {
-    if (!Editing) {
-      // 수정 모드로 전환
-      let newInput = document.createElement("input");
-      newInput.type = "text";
-      newInput.value = text.textContent;
-      newInput.setAttribute("class", "newinput");
-
-      // 기존 텍스트를 입력 필드로 교체
-      newLi.replaceChild(newInput, text);
-      insert_btn.innerHTML = "확인"; // 버튼을 '확인'으로 변경
-
-      // "확인" 버튼 클릭 시
-      insert_btn.removeEventListener("click", saveEdit); // 기존 이벤트 리스너 제거
-      insert_btn.addEventListener("click", saveEdit); // 새로운 이벤트 리스너 추가
-
-      Editing = true;
-    }
-  });
-
-  // 확인 후 텍스트를 저장하는 함수
-  function saveEdit() {
-    let newInput = newLi.querySelector("input[type='text']");
-    text = document.createTextNode(newInput.value); // 입력된 텍스트로 텍스트 노드 변경
-    newLi.replaceChild(text, newInput); // input을 텍스트로 교체
-    insert_btn.innerHTML = "수정"; // 버튼을 다시 '수정'으로 변경
-
-    Editing = false;
-  }
-
   deletebtn.addEventListener("click", () => {
     ul.removeChild(newLi); // 해당 li를 ul에서 제거
   });
+
+  insert_btn.addEventListener("click", () => {
+    const isEditing = insert_btn.innerHTML === "확인";
+
+    // 텍스트 수정 상태일 때
+    if (isEditing) {
+      const newInput = newLi.querySelector(".newinput"); // 수정된 입력 값 가져오기
+      text.textContent = newInput.value; // 텍스트를 수정된 값으로 업데이트
+    }
+
+    // 원래의 버튼 상태로 복원 및 내용 업데이트
+    update(isEditing);
+
+    // 버튼 상태 변경
+    insert_btn.innerHTML = isEditing ? "수정" : "확인";
+  });
+
+  function update(isEditing) {
+    newLi.innerHTML = ""; // 기존 내용 지우기
+
+    if (isEditing) {
+      newLi.appendChild(check); // 체크 버튼 추가
+      newLi.appendChild(text); // 수정된 텍스트 추가
+    } else {
+      let newInput = document.createElement("input");
+      newInput.type = "text";
+      newInput.value = text.textContent; // 현재 텍스트 값을 input에 채우기
+      newInput.setAttribute("class", "newinput");
+
+      newLi.appendChild(check);
+      newLi.appendChild(newInput); // 새 input 필드를 추가
+    }
+
+    newLi.appendChild(deletebtn); // 삭제 버튼 추가
+    newLi.appendChild(insert_btn); // 수정 버튼 추가
+  }
 
   // 체크박스 클릭 이벤트 처리
   check.addEventListener("change", function () {
