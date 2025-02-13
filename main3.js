@@ -1,6 +1,14 @@
 let todos = [];
 let i = 1;
 
+let time = setTimeout(() => {
+  date_time();
+});
+
+let timeID = setInterval(() => {
+  date_time();
+}, 1000);
+
 // 현재 날짜와 시간 가져오기
 function date_time() {
   let date = new Date();
@@ -22,14 +30,6 @@ function date_time() {
   document.querySelector(".date").innerHTML = today;
   document.querySelector(".time").innerHTML = time;
 }
-
-let time = setTimeout(() => {
-  date_time();
-});
-
-let timeID = setInterval(() => {
-  date_time();
-}, 1000);
 
 const API_KEY = "fd81f7c1133bdcc365228b56e695bc1f";
 
