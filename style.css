@@ -15,6 +15,17 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
+.time_box {
+  height: 20px;
+  background-color: rgb(255, 243, 251);
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+  align-items: center;
+  border-radius: 20px;
+}
+
 h1 {
   margin: 20px;
   text-align: center;
@@ -26,6 +37,11 @@ h1 {
   width: 500px;
   text-align: center;
   line-height: 50px;
+}
+
+img {
+  width: 40px;
+  height: 40px;
 }
 
 #todo {
