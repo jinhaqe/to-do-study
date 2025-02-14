@@ -12,14 +12,14 @@
       <div class="time_box">
         <span class="date"></span>
         <div style="display: flex; align-items: center">
-          <img class="icon" alt="날씨 아이콘" />
+          <img class="icon" src="./image1.jpg" />
           <span class="weather">날씨</span>
         </div>
         <span class="time"></span>
       </div>
       <h1>TO-DO-LIST</h1>
       <div class="content">
-        <input type="text" id="todo" />
+        <input type="text" id="todo" onkeyup="handleEnter(event)" />
         <button id="add" onclick="button_event()">추가</button>
         <ul></ul>
       </div>

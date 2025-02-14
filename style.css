@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Ownglyph_corncorn-Rg";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2412-1@1.0/Ownglyph_corncorn-Rg.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +14,7 @@
 .body_box {
   width: 500px;
   border: solid 1px black;
-  min-height: 420px;
+  min-height: 460px;
   margin: 0 auto;
   border-radius: 20px;
   padding: 20px;
@@ -17,7 +25,7 @@
 
 .time_box {
   height: 20px;
-  background-color: rgb(255, 243, 251);
+  background-color: rgb(255, 230, 247);
   padding: 10px;
   display: flex;
   justify-content: space-around;
@@ -26,10 +34,21 @@
   border-radius: 20px;
 }
 
+.time {
+  width: 75px;
+}
+
+span {
+  font-family: "Ownglyph_corncorn-Rg";
+  padding-top: 3px;
+}
+
 h1 {
   margin: 20px;
   text-align: center;
   margin-left: -10px;
+  font-family: "Ownglyph_corncorn-Rg";
+  letter-spacing: 0.3rem;
 }
 
 .content {
@@ -42,6 +61,7 @@ h1 {
 img {
   width: 40px;
   height: 40px;
+  margin-right: 10px;
 }
 
 #todo {
@@ -54,6 +74,10 @@ img {
   font-size: 16px;
   background-color: white;
   box-shadow: 0 0 5px rgba(202, 128, 177, 0.8);
+}
+
+input {
+  font-family: "Ownglyph_corncorn-Rg";
 }
 
 input:focus {
@@ -79,6 +103,7 @@ li {
   padding-left: 20px;
   margin-bottom: 10px;
   position: relative;
+  font-family: "Ownglyph_corncorn-Rg";
 }
 
 li:nth-child(odd) {
@@ -97,6 +122,8 @@ li:nth-child(even) {
   background-color: rgb(233, 174, 213);
   color: white;
   margin-left: 10px;
+  padding-top: 5px;
+  font-family: "Ownglyph_corncorn-Rg";
 }
 
 #add:hover {
@@ -153,6 +180,8 @@ li:nth-child(even) {
 
 li .btn {
   margin-left: 0;
+  font-family: "Ownglyph_corncorn-Rg";
+  padding-top: 5px;
 }
 
 .btn:hover {
