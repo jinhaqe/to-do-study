@@ -12,13 +12,15 @@
 }
 
 .body_box {
-  width: 500px;
+  width: 90%;
+  max-width: 500px;
   border: solid 1px black;
   min-height: 460px;
   margin: 0 auto;
   border-radius: 20px;
   padding: 20px;
   display: flex;
+  margin-top: 20px;
   flex-direction: column;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
@@ -32,10 +34,11 @@
   margin-bottom: 15px;
   align-items: center;
   border-radius: 20px;
+  text-align: center;
 }
 
 .time {
-  width: 75px;
+  width: 85px;
 }
 
 span {
@@ -53,7 +56,6 @@ h1 {
 
 .content {
   background-color: #ffffff;
-  width: 500px;
   text-align: center;
   line-height: 50px;
 }
@@ -65,7 +67,7 @@ img {
 }
 
 #todo {
-  width: 350px;
+  width: 80%;
   height: 30px;
   padding: 5px;
   padding-left: 20px;
@@ -87,7 +89,7 @@ input:focus {
 }
 
 ul {
-  margin: 10px;
+  margin: 10px 10px 10px 0;
   padding: 0;
   max-height: 250px;
   overflow-y: auto;
@@ -96,9 +98,9 @@ ul {
 li {
   list-style: none;
   text-align: left;
-  width: 360px;
+  width: 83%;
   margin: 0;
-  margin-left: 20px;
+  margin-left: 5px;
   border-radius: 50px;
   padding-left: 20px;
   margin-bottom: 10px;
@@ -205,9 +207,106 @@ li .btn {
 
 .check {
   margin-right: 10px;
+  padding-top: 0; /* 불필요한 패딩 제거 */
+  display: inline-block; /* 인라인 블록으로 변경하여 수직 중앙 정렬 */
+}
+
+input[type="checkbox"] {
+  vertical-align: middle; /* 체크박스를 텍스트와 수직 중앙 정렬 */
 }
 
 .completed {
   text-decoration: line-through;
   color: grey;
+}
+
+/* 모바일 반응형 */
+@media screen and (min-width: 300px) and (max-width: 375px) {
+  .input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: nowrap; /* 줄 바꿈을 방지 */
+  }
+
+  #todo {
+    width: 70%;
+  }
+
+  #add {
+    width: 40px;
+    height: 35px;
+  }
+
+  li {
+    width: 75% !important;
+    font-size: 14px !important;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 414px) {
+  .body_box {
+    width: 90%;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  #todo {
+    width: 70%;
+    font-size: 14px;
+  }
+
+  #add {
+    width: 40px;
+    height: 35px;
+    font-size: 12px;
+  }
+
+  li {
+    width: 76%;
+    font-size: 14px;
+    margin-left: 10px;
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .time_box {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 415px) and (max-width: 429px) {
+  .body_box {
+    width: 90%;
+    padding: 15px;
+  }
+
+  li {
+    margin-left: 7px;
+  }
+}
+
+@media screen and (min-width: 430px) and (max-width: 739px) {
+  .body_box {
+    width: 90%;
+    padding: 15px;
+  }
+
+  #todo {
+    width: 75%;
+    font-size: 14px;
+  }
+
+  li {
+    width: 80%;
+    margin-left: 10px;
+  }
 }
